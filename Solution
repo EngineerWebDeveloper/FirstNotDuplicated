@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FirstNotDuplicatedChar
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Program pg = new Program();
+            char x=pg.FindNoDuplicated("ABCDAB");
+            Console.WriteLine(x);
+            Console.ReadLine();
+        }
+
+        char FindNoDuplicated(String s)
+        {
+            char[] s1 = s.ToCharArray();
+            char res = new char();
+            for(int i = 0; i < s1.Length; i++)
+            {
+                char element = s1[i];
+                Boolean x = false;
+                for (int j = i+1; j < s1.Length; j++)
+                {
+                    if (s1[j] == element)
+                    {
+                        x = false;
+                        break;
+                    }
+                    else
+                    {
+                        x = true;
+                       // res = s1[j];
+                    }
+                }
+
+                if (x == true) { res = s1[i]; break; }
+            }
+            return res;
+            
+        }
+    }
+}
